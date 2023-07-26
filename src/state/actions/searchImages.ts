@@ -5,14 +5,14 @@ import api from "../api";
 
 const API_KEY = process.env.REACT_APP_API_KEY;
 
-export const searchImages = (query: string) => {
+export const searchImages = (query: string, page: number) => {
   return async (dispatch: Dispatch) => {
     dispatch({
       type: ActionType.FETCH_IMAGES,
     });
 
     try {
-      let { data } = await api.get<UnsplashSearchResponse>(`search/photos?client_id=${API_KEY}&query=${query}&per_page=30`);
+      let { data } = await api.get<UnsplashSearchResponse>(`search/photos?client_id=${API_KEY}&query=${query}&page=${page}&per_page=30`);
 
       let images = data.results.map((image) => {
         return {

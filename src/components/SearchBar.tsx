@@ -1,8 +1,8 @@
 import React from "react";
 
 interface SearchBarProps {
-    handleInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-    handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
+  handleInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
 }
 
 const SearchBar: React.FC<SearchBarProps> = ({ handleInputChange, handleSubmit }) => {

@@ -27,7 +27,7 @@ div.ImageList > div > img {
 
 /* Styling for the text container */
 div.ImageList > div > div {
-  padding: 10px;
+  padding: 5px;
 }
 
 /* Styling for the text */
@@ -75,4 +75,24 @@ div.ImageList > div > div > p {
 }
 .search-form form button:hover {
   background-color: #555;
+}
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  gap: 10px;
+}
+.pagination-button {
+  background-color: red;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.2em;
+  width: 500px;
+}
+
+.pagination-button:hover {
+  background-color: darkred;
 }

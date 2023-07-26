@@ -18,7 +18,7 @@ const Navigation = () => {
             Home
           </Link>
           <Link
-            to="/:id"
+            to="/search"
             className="nav-item">
             Search
           </Link>

@@ -10,6 +10,7 @@ const Search = () => {
   const images = useSelector((state: RootState) => state.photo.images);
 
   const [keyword, setKeyword] = useState("");
+  const [page, setPage] = useState(1);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setKeyword(e.target.value);
@@ -17,12 +18,29 @@ const Search = () => {
   };
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    dispatch(searchImages(keyword));
+    setPage(1);
+    dispatch(searchImages(keyword, page));
+  };
+
+  const handleNextPage = () => {
+    setPage((prevPage) => prevPage + 1);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const handlePrevPage = () => {
+    setPage((prevPage) => {
+      if (prevPage <= 1) {
+        return 1;
+      } else {
+        return prevPage - 1;
+      }
+    });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   useEffect(() => {
-    dispatch(searchImages(keyword));
-  }, [keyword]);
+    dispatch(searchImages(keyword, page));
+  }, [dispatch, keyword, page]);
 
   return (
     <div>
@@ -30,7 +48,27 @@ const Search = () => {
         handleInputChange={handleInputChange}
         handleSubmit={handleSubmit}
       />
-      <ImageList images={images} />
+      {images.length ? (
+        <>
+          <ImageList images={images} />
+          <div className="button-container">
+            <button
+              className="pagination-button"
+              type="button"
+              onClick={handlePrevPage}>
+              Previous
+            </button>
+            <button
+              className="pagination-button"
+              type="button"
+              onClick={handleNextPage}>
+              Next
+            </button>
+          </div>
+        </>
+      ) : (
+        <h3 style={{ textAlign: "center", marginTop: "30px" }}>No Search Results</h3>
+      )}
     </div>
   );
 };

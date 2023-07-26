@@ -12,9 +12,20 @@ const Home = () => {
     dispatch(getImages());
   }, [dispatch]);
 
+  const regenerateImages = () => {
+    dispatch(getImages());
+  };
+
   return (
     <div>
       <ImageList images={images} />
+      <div className="button-container">
+        <button
+          onClick={regenerateImages}
+          className="pagination-button">
+          Regenerate Random Images
+        </button>
+      </div>
     </div>
   );
 };
