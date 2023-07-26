@@ -12,31 +12,38 @@ div.ImageList {
 }
 
 /* Styling for each image container */
-div.ImageList > div {
+div.ImageList > div > {
   border: 1px solid #ddd;
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
 }
+/* Styling for the link */
+div.ImageList > div > .image-link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
 
 /* Styling for the images */
-div.ImageList > div > img {
+div.ImageList > div > .image-link > img {
   width: 100%;
   height: 250px;
 }
 
 /* Styling for the text container */
-div.ImageList > div > div {
+div.ImageList > div > .image-link > div {
   padding: 5px;
 }
 
 /* Styling for the text */
-div.ImageList > div > div > p {
+div.ImageList > div > .image-link > div > p {
   margin: 0;
   padding: 0;
   font-size: 14px;
   color: #333;
 }
+
 .nav-item {
   color: white;
   text-decoration: none;
@@ -95,4 +102,60 @@ div.ImageList > div > div > p {
 
 .pagination-button:hover {
   background-color: darkred;
+}
+.img-card {
+  margin-top: 20px;
+  margin-left: 30px;
+  width: 100%;
+  max-width: 600px;
+  border: 1px solid #ddd;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.img-full {
+  margin-top: 20px;
+  width: 100%;
+  height: 80vh;
+  object-fit: contain;
+}
+.back-btn {
+  background-color: #007bff;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border-radius: 5px;
+  margin: 10px 0;
+  font-weight: bold;
+}
+
+.back-btn:hover {
+  background-color: #0056b3;
+  color: white;
+}
+
+.details-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around; /* Space around can be used to distribute items evenly along the line with equal space around them */
+  gap: 20px;
+  background-color: #f3f3f3; /* Slightly greyish background */
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  border-radius: 8px;
+  width: 300px; /* or any width you prefer */
 }

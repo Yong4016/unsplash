@@ -40,7 +40,7 @@ const Search = () => {
 
   useEffect(() => {
     dispatch(searchImages(keyword, page));
-  }, [dispatch, keyword, page]);
+  }, [dispatch, page]);
 
   return (
     <div>

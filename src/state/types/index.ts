@@ -2,6 +2,7 @@ export type UnsplashImage = {
     id: string;
     urls: {
         small: string;
+        full: string;
     }
     user: {
         first_name: string;
